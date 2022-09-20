@@ -352,6 +352,35 @@ namespace ConsoleApplication1
             italianChef.MakeSpecialDish();
 
             Console.ReadLine();
+            
+            //--------------------------------------------------------------------- Yield Return
+            // Yield return
+            FillValues();
+            // custom iteration
+            foreach(int i in filter())
+            {
+                print(i);
+            }
+            // statefull iteration
+            foreach (int i in RunningTotal())
+            {
+                print(i);
+            }
+            // SUMMARY
+            // 1. Custom iteration without temp collection.
+            // 2. Stateful iteration
+            
+            //--------------------------------------------------------------------- Indexers
+            
+            public class List{
+                public void Add(int number){
+                    thow new NotImplementedException();
+                }
+            }
+            //this is the indexer
+            public int this[int index]{
+                get {throw new NotImplementedException();}
+            }
 
         }
         //----------- METHODs
@@ -468,6 +497,28 @@ namespace ConsoleApplication1
             }
             return result;
         }
+        // --------------------------- Yield Return
+        // custom iteration
+        static IEnumerable<int> filter()
+        {
+            foreach(int i in MyList)
+            {
+                if (i > 3)
+                {
+                    yield return i;
+                }
+            }
 
-    }
+        }
+        //statefull iteration
+        static IEnumerable<int> RunningTotal()
+        {
+            int runningTotal = 0;
+            foreach(int i in MyList)
+            {
+                runningTotal += i;
+                yield return (runningTotal);
+            }
+        }
+        }
 }
