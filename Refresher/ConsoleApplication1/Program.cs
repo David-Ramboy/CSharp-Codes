@@ -381,6 +381,8 @@ namespace ConsoleApplication1
             public int this[int index]{
                 get {throw new NotImplementedException();}
             }
+            // --------------------------------------------------- Generics
+            // you can use System.Collections.Generics. to see all the Built in Generics including Lists, INumerable so on..
 
         }
         //----------- METHODs
